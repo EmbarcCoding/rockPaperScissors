@@ -6,10 +6,20 @@ return a message that says 'Rock paper scissors shoot, and then returns a messag
 choices and winner of the round"
 */
 
-let randomNumber = Math.random() * 10
+let randomNumber = Math.random() * 10 
 
 function getComputerChoice() {
     return Math.floor(randomNumber);
+}
+
+let getHumanChoice = prompt("Enter your choice of Rock, Paper, Scissors.")
+
+if (getHumanChoice.toLowerCase() === "rock"){
+    alert("You chose Rock!")
+} else if (getHumanChoice.toLowerCase() === "paper") {
+        alert("You chose Paper!")
+} else {
+    alert ("You chose Scissors!");
 }
 
 
