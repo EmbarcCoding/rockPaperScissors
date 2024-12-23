@@ -31,6 +31,7 @@ function choice() {
 console.log(computerChoice);
 */
 
+/*  THIS IS MY ORIGINAL CODE TO CAPTURE PLAYERS CHOICE USING PROMPT
 let getHumanChoice = prompt("Enter your choice of Rock, Paper, Scissors.")
 
 if (getHumanChoice.toLowerCase() === "rock"){
@@ -40,6 +41,33 @@ if (getHumanChoice.toLowerCase() === "rock"){
 } else {
     alert ("You chose Scissors!");
 }
+*/
+
+// Function to get the player's choice
+function getHumanChoice() {
+    let choice = prompt("Enter your choice of Rock, Paper, or Scissors.");
+    let humanChoice;
+    
+    // Convert input to lowercase for comparison
+    if (choice.toLowerCase() === "rock") {
+        alert("You chose Rock!");
+    } else if (choice.toLowerCase() === "paper") {
+        alert("You chose Paper!");
+    } else if (choice.toLowerCase() === "scissors") {
+        alert("You chose Scissors!");
+    } else {
+        alert("Invalid choice. Please choose Rock, Paper, or Scissors.");
+        return getHumanChoice(); // Recursively call the function if input is invalid
+    }
+    
+    return choice.toLowerCase(); // Return the player's choice for later use
+}
+
+// Save the human choice for later
+let humanChoice = getHumanChoice();
+
+// Log the choice for debugging or further use
+console.log("Player's choice:", humanChoice);
 
 
 function getRandomNumber() {
@@ -58,8 +86,39 @@ function getComputerChoice() {
         computerChoice = "Scissors";
     }
 
-    return computerChoice;
+    return computerChoice.toLowerCase();
 }
 
 let computerChoice = getComputerChoice();
 console.log(computerChoice);
+
+function getRoundWinner() {
+    let roundWinner;
+
+    if (computerChoice === "rock" && humanChoice === "paper") {
+        roundWinner = "You win!";
+        alert("You win!");
+    } else if (computerChoice === "rock" && humanChoice === "scissors") {
+        roundWinner = "You lose!";
+        alert("You lose!");
+    } else if (computerChoice === "paper" && humanChoice === "scissors") {
+        roundWinner = "You win!";
+        alert("You win!");
+    } else if (computerChoice === "paper" && humanChoice === "rock") {
+        roundWinner = "You lose!";
+        alert("You lose!");
+    } else if (computerChoice === "scissors" && humanChoice === "rock") {
+        roundWinner = "You win!";
+        alert("You win!");
+    } else if (computerChoice === "scissors" && humanChoice === "paper") {
+        roundWinner = "You lose!";
+        alert("You lose!");
+    } else {
+        alert ("Go again");
+    }
+
+    return roundWinner;
+}
+
+let roundWinner = getRoundWinner();
+console.log(roundWinner);
